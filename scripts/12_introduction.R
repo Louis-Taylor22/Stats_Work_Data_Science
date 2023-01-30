@@ -46,3 +46,11 @@ darwin %>%
 summary(darwin)
 
 #---Basic visulaisation ---
+
+darwin %>% 
+  ggplot(aes(x=type,
+             y=height))+
+  geom_point()
+ggsave("figures/Basic_Darwin_Data_Visualisation.png", dpi=300)
+
+#---Comparing Groups---
