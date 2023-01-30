@@ -92,3 +92,19 @@ darwin_wide <- darwin %>%
   pivot_wider(names_from = type, values_from = height) %>% 
   mutate(difference = Cross - Self)
 darwin_wide
+
+difference_summary <- darwin_wide %>% 
+  summarise(mean=mean(difference),
+            sd=sd(difference),
+            n=n())
+
+difference_summary
+
+#Just calculated the mean difference between the two means 
+#Now calculating the standard error
+difference_summary %>% 
+  mutate(se= sd/sqrt(n))
+#the average difference in height was 2.62 ± 1.22 inches (mean ± SE).
+
+
+
